@@ -34,7 +34,7 @@
                     <label for="image_url" class="form-label">Product Image</label>
                     <input type="file" class="form-control" id="image_url" name="image_url">
                     @if($product->image_url)
-                        <img src="{{ asset($product->image_url) }}" alt="{{ $product->name }}" style="width:80px;height:80px;object-fit:cover;" class="rounded mt-2">
+                        <img src="{{ asset($product->image_url) }}" alt="{{ $product->name }}" width="150">
                     @endif
                 </div>
                 <button type="submit" class="btn btn-primary">Update Product</button>

@@ -24,7 +24,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
                     'price' => 115.00,
                     'stock_quantity' => 100,
                     'category' => 'Footwear',
-                    'image_url' => 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,q_auto:eco/1c6b2e2e-2e2e-4e2e-8e2e-2e2e2e2e2e2e/air-force-1-07-shoe.png',
+                    'image_url' => 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,q_auto:eco/1c6b2e2e-2e2e-4e2e-8e2e-2e2e2e2e2e/air-force-1-07-shoe.png',
                 ],
                 [
                     'name' => 'Adidas Stan Smith',
@@ -83,6 +83,33 @@ use Illuminate\Database\Eloquent\Factories\Factory;
                     'stock_quantity' => 40,
                     'category' => 'Clothing',
                     'image_url' => 'https://static.zara.net/photos//2023/I/0/1/p/3042/400/400/2/w/600/3042400400_6_1_1.jpg',
+                ],
+                // Chemise
+                [
+                    'name' => 'Chemise Celio Slim Fit',
+                    'description' => 'Chemise blanche Celio coupe slim, élégante et confortable.',
+                    'price' => 39.99,
+                    'stock_quantity' => 70,
+                    'category' => 'Chemise',
+                    'image_url' => 'https://www.celio.com/dw/image/v2/BDCB_PRD/on/demandware.static/-/Sites-celio-master-catalog/default/dw7e7e7e7e/images/chemise-blanche-homme-celio.jpg',
+                ],
+                // Jean
+                [
+                    'name' => 'Jean Diesel Skinny',
+                    'description' => 'Jean Diesel coupe skinny, style moderne et urbain.',
+                    'price' => 99.99,
+                    'stock_quantity' => 50,
+                    'category' => 'Jean',
+                    'image_url' => 'https://www.diesel.com/on/demandware.static/-/Sites-diesel-master-catalog/default/dw7e7e7e7e/images/jean-skinny-diesel.jpg',
+                ],
+                // Chaussure
+                [
+                    'name' => 'Chaussure Derby Cuir',
+                    'description' => 'Chaussure Derby en cuir véritable, idéale pour les occasions habillées.',
+                    'price' => 120.00,
+                    'stock_quantity' => 30,
+                    'category' => 'Chaussure',
+                    'image_url' => 'https://www.bexley.fr/medias/sys_master/images/hc7/hc7/chaussure-derby-cuir.jpg',
                 ],
             ];
             return fake()->randomElement($products);

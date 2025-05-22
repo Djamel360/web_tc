@@ -69,21 +69,27 @@ class ProductController extends Controller
             'image_url' => 'nullable|file|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $data = [
-            'name' => $validated['name'],
-            'description' => $validated['description'] ?? null,
-            'price' => $validated['price'],
-            'stock_quantity' => $validated['stock_quantity'],
-            'category' => $validated['category'],
-        ];
-
-        if ($request->hasFile('image_url')) {
-            $imagePath = $request->file('image_url')->store('products', 'public');
-            $data['image_url'] = '/storage/' . $imagePath;
+        // Supprimer l'image si demandé
+        if ($request->has('delete_image') && $product->image_url) {
+            $product->image_url = null;
         }
 
-        $product->update($data);
-        return redirect()->route('products.index')->with('success', 'Product updated successfully.');
+        // Gérer l'upload d'une nouvelle image
+        if ($request->hasFile('image_url')) {
+            $path = $request->file('image_url')->store('products', 'public');
+            $product->image_url = '/storage/' . $path;
+        }
+
+        // Mettre à jour les autres champs
+        $product->name = $request->input('name');
+        $product->description = $request->input('description');
+        $product->price = $request->input('price');
+        $product->stock_quantity = $request->input('stock_quantity');
+        $product->category = $request->input('category');
+
+        $product->save();
+
+        return redirect()->route('products.index')->with('success', 'Produit mis à jour avec succès.');
     }
 
     // Remove the specified product from storage
